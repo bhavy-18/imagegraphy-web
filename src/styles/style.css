@@ -1120,7 +1120,9 @@ img {
 
     .project-details-grid {
         grid-template-columns: repeat(2, 1fr);
-        margin-left: 200px;
+        margin-left: 0;
+
+
 
     }
 
