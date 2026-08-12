@@ -811,6 +811,7 @@ img {
     flex-direction: column;
     gap: 1.25rem;
     margin-top: 0.75rem;
+    margin-bottom: 4rem;
     animation: fadeUp 420ms ease both;
     position: relative;
     z-index: 10;
