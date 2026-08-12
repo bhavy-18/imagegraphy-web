@@ -1099,6 +1099,14 @@ img {
 
     }
 
+    .about-contact-section {
+        margin-top: 2.5rem;
+        margin-left: 7em;
+        padding-bottom: 3em;
+    }
+
+
+
     .name-row {
         flex-direction: column;
     }
