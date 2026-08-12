@@ -8,7 +8,6 @@
     --social-indent: clamp(1.5rem, 3vw, 3rem);
     --page-offset: clamp(9rem, 10.417vw, 12.5rem);
     --overview-offset: clamp(17rem, 16.667vw, 20rem);
-    --contact-offset: clamp(22rem, 23.438vw, 28.125rem);
     --content-gutter: clamp(1.25rem, 2.604vw, 3.125rem);
     --image-pad-y: clamp(3.75rem, 3.646vw, 4.375rem);
     --image-pad-right: clamp(4rem, 5.208vw, 6.25rem);
@@ -168,8 +167,7 @@ img {
     color: #999;
 }
 
-#about.active,
-#contact.active {
+#about.active {
     padding-top: 100px !important;
 }
 
@@ -797,31 +795,26 @@ img {
     word-spacing: 0.1em;
 }
 
-/* Contact Section */
-#contact {
-    width: min(43.75rem, calc(100% - var(--contact-offset) - var(--content-gutter)));
-    margin-left: var(--contact-offset);
-    padding: 0 0 1.25rem;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 10;
+/* About Contact Subsection */
+.about-contact-section {
+    margin-top: 2.5rem;
+    margin-left: 1.25rem;
 }
 
-#contact h1 {
-    margin-bottom: 3rem;
-    padding-top: 2.5rem;
-    font-size: var(--heading-lg);
-    font-weight: 300;
-    cursor: text;
-    animation: fadeDown 420ms ease both;
+.about-contact-title {
+    margin-bottom: 1rem;
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: #111;
+    letter-spacing: 0.02em;
 }
 
 /* Contact Column Layout (Minimal & Borderless) */
 .contact-column-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    gap: 1.25rem;
+    margin-top: 0.75rem;
     animation: fadeUp 420ms ease both;
     position: relative;
     z-index: 10;
@@ -877,137 +870,6 @@ img {
 
 .contact-row-item:hover .contact-row-text {
     color: #000;
-}
-
-.contact-form {
-    width: min(100%, 43.75rem);
-    max-width: 100%;
-    animation: fadeUp 420ms ease both;
-}
-
-.form-group,
-input,
-textarea {
-    min-width: 0;
-}
-
-.form-group {
-    margin-bottom: 2.8125rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    max-width: 100%;
-    padding: 0.875rem;
-    border: 1px solid #ccc;
-    outline: none;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-
-.form-group textarea {
-    height: 13.75rem;
-    resize: none;
-}
-
-.form-group h4 {
-    display: block;
-    margin-bottom: 1.875rem;
-    font-size: var(--text-md);
-    font-weight: 400;
-    letter-spacing: 0.0625rem;
-    cursor: text;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.75rem;
-    font-size: var(--text-md);
-    letter-spacing: 0.0625rem;
-    cursor: pointer;
-}
-
-.name-row {
-    display: flex;
-    gap: 0.625rem;
-}
-
-.input-group {
-    display: flex;
-    min-width: 0;
-    flex: 1;
-    flex-direction: column;
-}
-
-.small-label {
-    margin-bottom: 0.5rem;
-    color: #666;
-    font-size: 0.875rem;
-}
-
-.small-label span,
-.form-group span {
-    color: #999;
-    font-size: 0.75rem;
-    cursor: pointer;
-}
-
-input,
-textarea {
-    width: 100%;
-    max-width: 100%;
-    border: 1px solid #cfcfcf;
-    padding: 0.75rem;
-    outline: none;
-    background: #fff;
-    font-size: 1rem;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, padding 0.2s ease;
-}
-
-input {
-    height: 2.625rem;
-}
-
-textarea {
-    min-height: 9.375rem;
-    resize: vertical;
-}
-
-input:focus,
-textarea:focus {
-    border: 1px solid #000;
-    border-color: black;
-    border-radius: 0.3125rem;
-    outline: none;
-    box-shadow: inset 0 0 0 1px #111;
-    padding: 0.625rem;
-}
-
-.contact-form button {
-    width: 180px;
-    height: 50px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-
-}
-
-.contact-form button:hover {
-    background-color: #333;
-}
-
-.contact-form button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-.contact-form button {
-    transition: all 0.3s ease;
 }
 
 .social1 img {
@@ -1433,7 +1295,6 @@ textarea:focus {
     }
 
     .page,
-    #contact,
     #projects,
     #overview,
     #about {
@@ -1601,23 +1462,14 @@ textarea:focus {
         line-height: 1.6em;
     }
 
-    #contact {
-        width: 100%;
-        max-width: 100%;
+    .about-contact-section {
+        margin-top: 1.75rem;
         margin-left: 0;
-        padding: 1.5rem var(--content-gutter) 2.5rem;
-        box-sizing: border-box;
-    }
-
-    #contact h1 {
-        font-size: clamp(2rem, 7vw, 2.75rem);
-        margin-bottom: 1.75rem;
-        padding-top: 0;
     }
 
     .contact-column-container {
-        margin-top: 1rem;
-        gap: 1.25rem;
+        margin-top: 0.75rem;
+        gap: 1rem;
         width: 100%;
         max-width: 100%;
     }

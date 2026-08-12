@@ -117,13 +117,6 @@ const Sidebar = ({
             >
               About
             </NavLink>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) => (isActive ? 'active' : '')}
-              onClick={closeMobileMenu}
-            >
-              Contact
-            </NavLink>
           </nav>
 
           <div className="social">

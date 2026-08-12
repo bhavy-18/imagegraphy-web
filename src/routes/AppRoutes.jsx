@@ -1,7 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import AboutPage from '../pages/AboutPage';
-import ContactPage from '../pages/ContactPage';
 import OverviewPage from '../pages/OverviewPage';
 import ProjectsPage from '../pages/ProjectsPage';
 
@@ -47,7 +46,6 @@ const AppRoutes = ({
         }
       />
       <Route path="/about" element={<AboutPage />} />
-      <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<Navigate to="/overview" replace />} />
     </Routes>
   );
