@@ -46,7 +46,12 @@ const OverviewSection = ({
   };
 
   const handlePointerMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+    const imgEl = e.currentTarget.querySelector('img');
+    if (!imgEl || (e.target !== imgEl && !imgEl.contains(e.target))) {
+      setHoverZone(null);
+      return;
+    }
+    const rect = imgEl.getBoundingClientRect();
     setHoverZone(getZone(e.clientX, rect.width, rect.left));
   };
 
@@ -79,7 +84,9 @@ const OverviewSection = ({
     const currentMobileImg = overviewImages[mobileActiveIndex] || overviewImages[0];
 
     const handleMobileImageClick = (e) => {
-      const rect = e.currentTarget.getBoundingClientRect();
+      if (e.target.tagName !== 'IMG') return;
+
+      const rect = e.target.getBoundingClientRect();
       const zone = getZone(e.clientX, rect.width, rect.left);
 
       if (zone === 'prev') {
@@ -125,7 +132,9 @@ const OverviewSection = ({
   const currentImg = overviewImages[overviewIndex] || overviewImages[0];
 
   const handleImageClick = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+    if (e.target.tagName !== 'IMG') return;
+
+    const rect = e.target.getBoundingClientRect();
     const zone = getZone(e.clientX, rect.width, rect.left);
 
     if (zone === 'prev') {

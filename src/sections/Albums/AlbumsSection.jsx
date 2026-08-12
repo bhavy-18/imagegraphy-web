@@ -138,7 +138,12 @@ const AlbumsSection = ({
   };
 
   const handlePointerMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+    const imgEl = e.currentTarget.querySelector('img');
+    if (!imgEl || (e.target !== imgEl && !imgEl.contains(e.target))) {
+      setHoverZone(null);
+      return;
+    }
+    const rect = imgEl.getBoundingClientRect();
     setHoverZone(getZone(e.clientX, rect.width, rect.left));
   };
 
@@ -147,7 +152,9 @@ const AlbumsSection = ({
   };
 
   const handleImageClick = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+    if (e.target.tagName !== 'IMG') return;
+
+    const rect = e.target.getBoundingClientRect();
     const zone = getZone(e.clientX, rect.width, rect.left);
 
     if (zone === 'prev') {

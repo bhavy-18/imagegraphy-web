@@ -28,14 +28,25 @@ const AboutSection = () => {
                 <Phone size={20} strokeWidth={1.75} className="contact-row-icon" />
                 <span className="contact-row-text">+91 9033227173</span>
               </a>
-              <a
-                href="mailto:kd1894@gmail.com"
-                className="contact-row-item"
-                aria-label="Email kd1894@gmail.com"
-              >
-                <Mail size={20} strokeWidth={1.75} className="contact-row-icon" />
-                <span className="contact-row-text">kd1894@gmail.com</span>
-              </a>
+              <div className="contact-row-group">
+                <Mail size={20} strokeWidth={1.75} className="contact-row-icon contact-multi-icon" />
+                <div className="contact-emails-stacked">
+                  <a
+                    href="mailto:kd1894@gmail.com"
+                    className="contact-email-link"
+                    aria-label="Email kd1894@gmail.com"
+                  >
+                    <span className="contact-row-text">kd1894@gmail.com</span>
+                  </a>
+                  <a
+                    href="mailto:kd@imagegraphy.com"
+                    className="contact-email-link"
+                    aria-label="Email kd@imagegraphy.com"
+                  >
+                    <span className="contact-row-text">kd@imagegraphy.com</span>
+                  </a>
+                </div>
+              </div>
               <a
                 href="https://www.instagram.com/imagegraphy_/"
                 target="_blank"

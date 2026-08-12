@@ -219,108 +219,108 @@ export const projectsData = [
     id: '01',
     title: "CALEDON PUBLIC LIBRARY",
     cover: projCover_01,
-    images: [projCover_01, proj_01_img_1, proj_01_img_2, proj_01_img_3, proj_01_img_4, proj_01_img_5, proj_01_img_6, proj_01_img_7]
+    images: [proj_01_img_7, proj_01_img_1, proj_01_img_3, proj_01_img_2, proj_01_img_4, proj_01_img_6, proj_01_img_5]
   },
   {
     id: '02',
     title: "OCAD BUTTERFIELD PARK",
     cover: projCover_02,
-    images: [projCover_02, proj_02_img_1, proj_02_img_2, proj_02_img_3, proj_02_img_4, proj_02_img_5, proj_02_img_6, proj_02_img_7, proj_02_img_8, proj_02_img_9]
+    images: [proj_02_img_7, proj_02_img_2, proj_02_img_3, proj_02_img_1, proj_02_img_4, proj_02_img_8, proj_02_img_5, proj_02_img_6, proj_02_img_9]
   },
   {
     id: '03',
     title: "PALMERSTON",
     cover: projCover_03,
-    images: [projCover_03, proj_03_img_1, proj_03_img_2, proj_03_img_3, proj_03_img_4, proj_03_img_5, proj_03_img_6, proj_03_img_7, proj_03_img_8, proj_03_img_9, proj_03_img_10, proj_03_img_11, proj_03_img_12, proj_03_img_13, proj_03_img_14, proj_03_img_15, proj_03_img_16, proj_03_img_17, proj_03_img_18, proj_03_img_19, proj_03_img_20]
+    images: [proj_03_img_13, proj_03_img_16, proj_03_img_6, proj_03_img_13, proj_03_img_4, proj_03_img_5, proj_03_img_6, proj_03_img_7, proj_03_img_8, proj_03_img_9, proj_03_img_10, proj_03_img_12, proj_03_img_13, proj_03_img_14, proj_03_img_15, proj_03_img_16, proj_03_img_17, proj_03_img_18, proj_03_img_19, proj_03_img_20]
   },
   {
     id: '04',
     title: "ANAMYAM",
     cover: projCover_04,
-    images: [projCover_04, proj_04_img_1, proj_04_img_2, proj_04_img_3, proj_04_img_4, proj_04_img_5, proj_04_img_6, proj_04_img_7, proj_04_img_8, proj_04_img_9, proj_04_img_10]
+    images: [proj_04_img_1, proj_04_img_3, proj_04_img_4, proj_04_img_5, proj_04_img_6, proj_04_img_7, proj_04_img_8, proj_04_img_9, proj_04_img_10, proj_04_img_2]
   },
   {
     id: '05',
     title: "FRANK GEHRY AGO",
     cover: projCover_05,
-    images: [projCover_05, proj_05_img_1, proj_05_img_2, proj_05_img_3, proj_05_img_4, proj_05_img_5, proj_05_img_6, proj_05_img_7, proj_05_img_8]
+    images: [proj_05_img_1, proj_05_img_2, proj_05_img_3, proj_05_img_4, proj_05_img_5, proj_05_img_6, proj_05_img_7, proj_05_img_8]
   },
   {
     id: '06',
     title: "ROM",
     cover: projCover_06,
-    images: [projCover_06, proj_06_img_1, proj_06_img_2, proj_06_img_3, proj_06_img_4, proj_06_img_5, proj_06_img_6, proj_06_img_7, proj_06_img_8]
+    images: [proj_06_img_3, proj_06_img_2, proj_06_img_1, proj_06_img_4, proj_06_img_5, proj_06_img_6, proj_06_img_7, proj_06_img_8]
   },
   {
     id: '07',
     title: "WARREN-AVE",
     cover: projCover_07,
-    images: [projCover_07, proj_07_img_1, proj_07_img_2, proj_07_img_3, proj_07_img_4, proj_07_img_5, proj_07_img_6, proj_07_img_7, proj_07_img_8, proj_07_img_9, proj_07_img_10]
+    images: [proj_07_img_2, proj_07_img_1, proj_07_img_4, proj_07_img_6, proj_07_img_8, proj_07_img_5, proj_07_img_7, proj_07_img_9, proj_07_img_3, proj_07_img_10]
   },
   {
     id: '08',
     title: "HILLMOUNT",
     cover: projCover_08,
-    images: [projCover_08, proj_08_img_1, proj_08_img_2, proj_08_img_3, proj_08_img_4, proj_08_img_5, proj_08_img_6, proj_08_img_7, proj_08_img_8, proj_08_img_9, proj_08_img_10, proj_08_img_11, proj_08_img_12, proj_08_img_13]
+    images: [proj_08_img_9, proj_08_img_11, proj_08_img_12, proj_08_img_13, proj_08_img_1, proj_08_img_2, proj_08_img_3, proj_08_img_4, proj_08_img_5, proj_08_img_6, proj_08_img_7, proj_08_img_8, proj_08_img_10]
   },
   {
     id: '09',
     title: "GO BANANA",
     cover: projCover_09,
-    images: [projCover_09, proj_09_img_1, proj_09_img_2, proj_09_img_3, proj_09_img_4, proj_09_img_5, proj_09_img_6, proj_09_img_7, proj_09_img_8, proj_09_img_9]
+    images: [proj_09_img_1, proj_09_img_2, proj_09_img_3, proj_09_img_4, proj_09_img_5, proj_09_img_6, proj_09_img_7, proj_09_img_8, proj_09_img_9]
   },
   {
     id: '10',
     title: "SAFAL PENTHOUSE",
     cover: projCover_10,
-    images: [projCover_10, proj_10_img_1, proj_10_img_2, proj_10_img_3, proj_10_img_4, proj_10_img_5, proj_10_img_6, proj_10_img_7, proj_10_img_8, proj_10_img_9, proj_10_img_10, proj_10_img_11, proj_10_img_12, proj_10_img_13, proj_10_img_14, proj_10_img_15]
+    images: [proj_10_img_1, proj_10_img_8, proj_10_img_9, proj_10_img_10, proj_10_img_11, proj_10_img_12, proj_10_img_13, proj_10_img_14, proj_10_img_15, proj_10_img_2, proj_10_img_3, proj_10_img_4, proj_10_img_5, proj_10_img_6, proj_10_img_7]
   },
   {
     id: '11',
     title: "SHALIGRAM PRIME",
     cover: projCover_11,
-    images: [projCover_11, proj_11_img_1, proj_11_img_2, proj_11_img_3, proj_11_img_4, proj_11_img_5, proj_11_img_6, proj_11_img_7, proj_11_img_8, proj_11_img_9, proj_11_img_10, proj_11_img_11]
+    images: [proj_11_img_1, proj_11_img_4, proj_11_img_5, proj_11_img_6, proj_11_img_7, proj_11_img_8, proj_11_img_9, proj_11_img_10, proj_11_img_11, proj_11_img_2, proj_11_img_3]
   },
   {
     id: '12',
     title: "AIM SCHOOL",
     cover: projCover_12,
-    images: [projCover_12, proj_12_img_1, proj_12_img_2, proj_12_img_3, proj_12_img_4, proj_12_img_5, proj_12_img_6, proj_12_img_7, proj_12_img_8]
+    images: [proj_12_img_1, proj_12_img_2, proj_12_img_3, proj_12_img_4, proj_12_img_5, proj_12_img_6, proj_12_img_7, proj_12_img_8]
   },
   {
     id: '13',
     title: "GUELPH TRANSFER STATION",
     cover: projCover_13,
-    images: [projCover_13, proj_13_img_1, proj_13_img_2, proj_13_img_3, proj_13_img_4, proj_13_img_5, proj_13_img_6]
+    images: [proj_13_img_1, proj_13_img_2, proj_13_img_3, proj_13_img_4, proj_13_img_5, proj_13_img_6]
   },
   {
     id: '14',
     title: "METRO HALL",
     cover: projCover_14,
-    images: [projCover_14, proj_14_img_1, proj_14_img_2, proj_14_img_3, proj_14_img_4, proj_14_img_5, proj_14_img_6, proj_14_img_7, proj_14_img_8, proj_14_img_9, proj_14_img_10, proj_14_img_11]
+    images: [proj_14_img_1, proj_14_img_4, proj_14_img_5, proj_14_img_6, proj_14_img_7, proj_14_img_8, proj_14_img_9, proj_14_img_10, proj_14_img_11, proj_14_img_2, proj_14_img_3]
   },
   {
     id: '15',
     title: "THE HOUSE OF MULTIPLE COURTYARDS",
     cover: projCover_15,
-    images: [projCover_15, proj_15_img_1, proj_15_img_2, proj_15_img_3, proj_15_img_4, proj_15_img_5, proj_15_img_6, proj_15_img_7, proj_15_img_8, proj_15_img_9, proj_15_img_10, proj_15_img_11, proj_15_img_12, proj_15_img_13]
+    images: [proj_15_img_1, proj_15_img_7, proj_15_img_8, proj_15_img_9, proj_15_img_10, proj_15_img_11, proj_15_img_12, proj_15_img_13, proj_15_img_2, proj_15_img_3, proj_15_img_4, proj_15_img_5, proj_15_img_6]
   },
   {
     id: '16',
     title: "MUKESHBHAI'S HOUSE",
     cover: projCover_16,
-    images: [projCover_16, proj_16_img_1, proj_16_img_2, proj_16_img_3, proj_16_img_4, proj_16_img_5, proj_16_img_6, proj_16_img_7, proj_16_img_8, proj_16_img_9, proj_16_img_10, proj_16_img_11, proj_16_img_12, proj_16_img_13, proj_16_img_14, proj_16_img_15, proj_16_img_16]
+    images: [proj_16_img_1, proj_16_img_9, proj_16_img_10, proj_16_img_11, proj_16_img_12, proj_16_img_13, proj_16_img_14, proj_16_img_15, proj_16_img_16, proj_16_img_2, proj_16_img_3, proj_16_img_4, proj_16_img_5, proj_16_img_6, proj_16_img_7, proj_16_img_8]
   },
   {
     id: '17',
     title: "GIRISHBHAI'S HOUSE",
     cover: projCover_17,
-    images: [projCover_17, proj_17_img_1, proj_17_img_2, proj_17_img_3, proj_17_img_4, proj_17_img_5, proj_17_img_6, proj_17_img_7, proj_17_img_8, proj_17_img_9, proj_17_img_10, proj_17_img_11, proj_17_img_12, proj_17_img_13, proj_17_img_14]
+    images: [proj_17_img_1, proj_17_img_8, proj_17_img_9, proj_17_img_10, proj_17_img_11, proj_17_img_12, proj_17_img_13, proj_17_img_14, proj_17_img_2, proj_17_img_3, proj_17_img_4, proj_17_img_5, proj_17_img_6, proj_17_img_7]
   },
   {
     id: '18',
     title: "MUSHROOM HOUSE",
     cover: projCover_18,
-    images: [projCover_18, proj_18_img_1, proj_18_img_2, proj_18_img_3, proj_18_img_4, proj_18_img_5, proj_18_img_6, proj_18_img_7, proj_18_img_8, proj_18_img_9]
+    images: [proj_18_img_1, proj_18_img_2, proj_18_img_3, proj_18_img_4, proj_18_img_5, proj_18_img_6, proj_18_img_7, proj_18_img_8, proj_18_img_9]
   }
 ];
