@@ -135,8 +135,7 @@ img {
     display: block;
     width: 100%;
     height: auto;
-    margin-left: 40px;
-    object-fit: contain;
+    margin-left: 4rem;
     image-rendering: -webkit-optimize-contrast;
 }
 
@@ -156,9 +155,9 @@ img {
 .menu a {
     margin-left: 0;
     color: #111;
-    font-size: var(--text-lg);
+    font-size: 17px;
     font-weight: 400;
-    text-align: left;
+    text-align: center;
     text-decoration: none;
     transition: color 0.3s ease, opacity 0.3s ease;
     animation: fadeRight 420ms ease both;
@@ -169,7 +168,8 @@ img {
     color: #999;
 }
 
-#about.active, #contact.active{
+#about.active,
+#contact.active {
     padding-top: 100px !important;
 }
 
@@ -193,7 +193,7 @@ img {
     display: block;
     width: 1.125rem;
     height: auto;
-    margin-left: 100px;
+    margin-left: 8em;
     cursor: pointer;
     transition: opacity 0.3s ease;
     animation: scaleIn 360ms ease both;
@@ -1153,12 +1153,20 @@ textarea:focus {
         margin: 1.25rem auto 2.5rem;
     }
 
+    .logo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-left: 2rem;
+        image-rendering: -webkit-optimize-contrast;
+    }
+
     .menu a {
         font-size: 1.125rem;
     }
 
     .social img {
-        margin-left: 100px;
+        margin-left: 7em;
     }
 
     .bottom-nav,
