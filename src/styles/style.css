@@ -99,12 +99,20 @@ img {
 
     padding: var(--sidebar-padding-y) var(--sidebar-padding-x);
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
     background: #fff;
     animation: fadeLeft 420ms ease both;
 }
 
 .sidebar-header {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .mobile-menu-title,
@@ -122,19 +130,34 @@ img {
     min-height: 0;
     flex: 1;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
 }
 
 .logo {
     width: var(--logo-width);
-    margin: 1.25rem 0 2.5rem;
+    margin: 1.25rem auto 2.5rem;
     animation: scaleIn 360ms ease both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .logo img {
     display: block;
     width: 100%;
     height: auto;
-    margin-left: 4rem;
+    margin: 0 auto;
     image-rendering: -webkit-optimize-contrast;
 }
 
@@ -142,17 +165,29 @@ img {
 .sidebar-middle {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
-    margin-left: 80px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
     gap: clamp(1rem, 0.94vw, 1.125rem);
+    text-align: center;
 }
 
 .menu a {
-    margin-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
     color: #111;
     font-size: 17px;
     font-weight: 400;
@@ -172,16 +207,22 @@ img {
 }
 
 .social {
-    margin-top: 2.1875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 2.1875rem auto 0;
+    text-align: center;
 }
 
 .social a,
 .social1 a {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     min-width: 2.5rem;
     min-height: 2.5rem;
+    margin: 0 auto;
     touch-action: manipulation;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -191,8 +232,7 @@ img {
     display: block;
     width: 1.125rem;
     height: auto;
-    margin-left: 8em;
-    position: flex;
+    margin: 0 auto;
     cursor: pointer;
     transition: opacity 0.3s ease;
     animation: scaleIn 360ms ease both;
@@ -202,17 +242,25 @@ img {
 .sidebar-bottom {
     margin-top: auto;
     margin-bottom: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
     animation: fadeUp 420ms ease both;
 }
 
 .bottom-nav {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    margin-left: var(--logo-indent);
-    margin-bottom: 0.5rem;
+    margin: 0 auto 0.5rem;
     font-size: 0.6875rem;
     letter-spacing: 0.1875rem;
+    width: 100%;
+    text-align: center;
 }
 
 .bottom-nav h3 {
@@ -224,12 +272,21 @@ img {
     transition: opacity 0.3s ease;
 }
 
+.thumbnails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
 .thumbnails a,
 .thumbnails button,
 .thumbnail-text {
     display: inline-flex;
     align-items: center;
-    margin-left: var(--logo-indent);
+    justify-content: center;
+    margin: 0 auto;
     border: 0;
     background: none;
     color: #777;
@@ -237,6 +294,7 @@ img {
     letter-spacing: 0.15625rem;
     text-decoration: none;
     line-height: 1.3;
+    text-align: center;
 }
 
 /* Main Content & Overview Hero */
@@ -1044,10 +1102,6 @@ img {
         --about-left: 6.25rem;
         --image-pad-right: 5rem;
     }
-
-    .social a img {
-        margin-left: 5rem;
-    }
 }
 
 @media (max-width: 1280px) {
@@ -1094,8 +1148,7 @@ img {
     }
 
     .sidebar {
-        padding: 1.25rem 3rem 0 0;
-
+        padding: 1.25rem 1rem 0 1rem;
     }
 
     .logo {
@@ -1106,7 +1159,7 @@ img {
         display: block;
         width: 100%;
         height: auto;
-        margin-left: 2.5rem;
+        margin: 0 auto;
         image-rendering: -webkit-optimize-contrast;
     }
 
@@ -1114,23 +1167,17 @@ img {
         font-size: 1.125rem;
     }
 
-    .social a img {
-        margin-left: 5rem;
-    }
-
     .bottom-nav,
     .thumbnail a,
     .thumbnail button {
-        margin-left: 10px;
-
+        margin-left: 0;
     }
 
     .thumbnails button,
     .thumbnail-text {
-        margin-left: 37px;
+        margin-left: 0;
         white-space: nowrap;
     }
-
 
     .bottom-nav {
         justify-content: center;
