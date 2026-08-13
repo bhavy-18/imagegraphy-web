@@ -1,8 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { overviewImages } from '../../data/overviewImages';
 
-const OverviewSection = ({
+const OverviewThumbItem = memo(({ imgSrc, alt, idx, onClick }) => (
+  <div className="overview-thumb-item" onClick={onClick}>
+    <img
+      src={imgSrc}
+      alt={alt}
+      loading={idx < 8 ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchpriority={idx < 4 ? 'high' : 'auto'}
+    />
+  </div>
+));
+
+const OverviewSection = memo(({
   overviewIndex,
   onPrevOverview,
   onNextOverview,
@@ -21,6 +33,7 @@ const OverviewSection = ({
   );
   const [mobileActiveIndex, setMobileActiveIndex] = useState(null);
 
+  // Passive resize listener
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth <= 820;
@@ -29,13 +42,25 @@ const OverviewSection = ({
         setMobileActiveIndex(null);
       }
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
     setMobileActiveIndex(null);
   }, [location.pathname, overviewIndex]);
+
+  // Preload adjacent images for instantaneous slideshow navigation
+  useEffect(() => {
+    if (!overviewImages || overviewImages.length <= 1) return;
+    const activeIdx = isMobile && mobileActiveIndex !== null ? mobileActiveIndex : overviewIndex;
+    const nextIdx = (activeIdx + 1) % overviewImages.length;
+    const prevIdx = (activeIdx - 1 + overviewImages.length) % overviewImages.length;
+    const img1 = new Image();
+    img1.src = overviewImages[nextIdx];
+    const img2 = new Image();
+    img2.src = overviewImages[prevIdx];
+  }, [overviewIndex, mobileActiveIndex, isMobile]);
 
   const getZone = (clientX, width, left) => {
     const x = clientX - left;
@@ -72,7 +97,7 @@ const OverviewSection = ({
                   className="overview-thumb-item"
                   onClick={() => setMobileActiveIndex(idx)}
                 >
-                  <img src={imgSrc} alt={`Overview thumbnail ${idx + 1}`} loading="lazy" />
+                  <img src={imgSrc} alt={`Overview thumbnail ${idx + 1}`} loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>
@@ -120,19 +145,14 @@ const OverviewSection = ({
             onPointerLeave={handlePointerLeave}
             style={{ cursor: cursorStyle }}
           >
-            <img
-              src={currentMobileImg}
-              alt={`Overview slide ${mobileActiveIndex + 1}`}
-              loading="eager"
-              onClick={handleMobileImageClick}
-            />
+            <img src={currentMobileImg} alt={`Overview slide ${mobileActiveIndex + 1}`} onClick={handleMobileImageClick} loading="eager" decoding="async" fetchpriority="high" />
           </div>
         </main>
       </section>
     );
   }
 
-  // --- DESKTOP / TABLET VIEW (UNCHANGED) ---
+  // --- DESKTOP / TABLET VIEW ---
   const currentImg = overviewImages[overviewIndex] || overviewImages[0];
 
   const handleImageClick = (e) => {
@@ -162,13 +182,13 @@ const OverviewSection = ({
         <div className="overview-thumbnails-container">
           <div className="overview-thumbnails-grid">
             {overviewImages.map((imgSrc, idx) => (
-              <div
-                key={idx}
-                className="overview-thumb-item"
+              <OverviewThumbItem
+                key={imgSrc}
+                imgSrc={imgSrc}
+                alt={`Overview thumbnail ${idx + 1}`}
+                idx={idx}
                 onClick={() => onSelectOverviewIndex(idx)}
-              >
-                <img src={imgSrc} alt={`Overview thumbnail ${idx + 1}`} />
-              </div>
+              />
             ))}
           </div>
         </div>
@@ -195,11 +215,11 @@ const OverviewSection = ({
           onClick={handleImageClick}
           style={{ cursor: cursorStyle }}
         >
-          <img src={currentImg} alt={`Overview slide ${overviewIndex + 1}`} />
+          <img src={currentImg} alt={`Overview slide ${overviewIndex + 1}`} loading="eager" decoding="async" fetchpriority="high" />
         </div>
       </main>
     </section>
   );
-};
+});
 
 export default OverviewSection;

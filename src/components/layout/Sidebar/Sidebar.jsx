@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import instaLogo from '../../../assets/images/icons/insta-logo.svg';
 import logoImg from '../../../assets/images/logos/imagegraphy-logo.jpg';
 
-const Sidebar = ({
+const Sidebar = memo(({
   onLogoClick,
   onPrevOverview,
   onNextOverview,
@@ -68,7 +69,7 @@ const Sidebar = ({
       <div className="sidebar-header">
         <div className="logo">
           <Link to="/overview" onClick={handleLogoNav}>
-            <img src={logoImg} alt="Imagegraphy Logo" />
+            <img src={logoImg} alt="Imagegraphy Logo" loading="eager" decoding="async" />
           </Link>
         </div>
 
@@ -79,7 +80,7 @@ const Sidebar = ({
           className="mobile-insta-link"
           aria-label="Instagram"
         >
-          <img src={instaLogo} alt="Instagram" />
+          <img src={instaLogo} alt="Instagram" loading="lazy" decoding="async" />
         </a>
 
         <label className="mobile-menu-title" htmlFor="site-menu-toggle" aria-label="Toggle navigation menu">
@@ -126,7 +127,7 @@ const Sidebar = ({
               rel="noopener noreferrer"
               onClick={closeMobileMenu}
             >
-              <img src={instaLogo} alt="Instagram" />
+              <img src={instaLogo} alt="Instagram" loading="lazy" decoding="async" />
             </a>
           </div>
         </div>
@@ -154,6 +155,6 @@ const Sidebar = ({
       </div>
     </aside>
   );
-};
+});
 
 export default Sidebar;

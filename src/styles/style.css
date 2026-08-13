@@ -311,6 +311,7 @@ img {
     position: relative;
     width: 100%;
     animation: fadeUp 420ms ease both;
+    will-change: transform, opacity;
 }
 
 .overview-thumb-item img {
@@ -429,7 +430,8 @@ img {
     position: relative;
     width: 100%;
     background: #f5f5f5;
-    animation: fadeUp 420ms ease both;
+    animation: fadeDown 420ms ease both;
+    will-change: transform, opacity;
 }
 
 .project-detail-thumb img {

@@ -24,69 +24,72 @@ const App = () => {
     projectHandlersRef.current = handlers;
   }, []);
 
-  const handleLogoClick = () => {
+  const handleLogoClick = useCallback(() => {
     setOverviewIndex(0);
     setShowThumbnails(false);
     setAlbumViewerIndex(null);
-  };
+  }, []);
 
-  const handleProjectNavClick = () => {
+  const handleProjectNavClick = useCallback(() => {
     setAlbumViewerIndex(null);
     setProjectViewerState({
       activeProjIndex: null,
       showGalleryGrid: false,
       activeImgIndex: 0
     });
-  };
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (document.documentElement) document.documentElement.scrollTop = 0;
+    if (document.body) document.body.scrollTop = 0;
+  }, []);
 
-  const handlePrevOverview = () => {
+  const handlePrevOverview = useCallback(() => {
     setOverviewIndex((prev) => (prev === 0 ? overviewImages.length - 1 : prev - 1));
-  };
+  }, []);
 
-  const handleNextOverview = () => {
+  const handleNextOverview = useCallback(() => {
     setOverviewIndex((prev) => (prev === overviewImages.length - 1 ? 0 : prev + 1));
-  };
+  }, []);
 
-  const handleToggleThumbnails = () => {
+  const handleToggleThumbnails = useCallback(() => {
     setShowThumbnails((prev) => !prev);
-  };
+  }, []);
 
-  const handlePrevProject = () => {
+  const handlePrevProject = useCallback(() => {
     if (projectHandlersRef.current.goPrev) {
       projectHandlersRef.current.goPrev();
     }
-  };
+  }, []);
 
-  const handleNextProject = () => {
+  const handleNextProject = useCallback(() => {
     if (projectHandlersRef.current.goNext) {
       projectHandlersRef.current.goNext();
     }
-  };
+  }, []);
 
-  const handleShowProjectThumbnails = () => {
+  const handleShowProjectThumbnails = useCallback(() => {
     if (projectHandlersRef.current.showThumbnails) {
       projectHandlersRef.current.showThumbnails();
     }
-  };
+  }, []);
 
-  const getSafeAlbumIndex = (index) => {
+  const getSafeAlbumIndex = useCallback((index) => {
     if (typeof index !== 'number' || Number.isNaN(index)) return null;
     if (index < 0) return 0;
     return Math.min(index, albumImages.length - 1);
-  };
+  }, []);
 
-  const handleOpenAlbum = (index = null) => {
+  const handleOpenAlbum = useCallback((index = null) => {
     const safeIndex = getSafeAlbumIndex(index);
     setShowThumbnails(true);
     if (index !== null) setOverviewIndex(index);
     setAlbumViewerIndex(safeIndex);
-  };
+  }, [getSafeAlbumIndex]);
 
-  const handleSelectOverviewIndex = (idx) => {
+  const handleSelectOverviewIndex = useCallback((idx) => {
     setOverviewIndex(idx);
     setShowThumbnails(false);
     setAlbumViewerIndex(getSafeAlbumIndex(idx));
-  };
+  }, [getSafeAlbumIndex]);
 
   return (
     <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>

@@ -1,11 +1,15 @@
+import { memo } from 'react';
 import { Phone, Mail } from 'lucide-react';
 import kdImg from '../../assets/images/about/kuldeep-ghadiali.jpg';
 import instaLogo from '../../assets/images/icons/insta-logo.svg';
 
-const AboutSection = () => {
+const AboutSection = memo(() => {
   return (
     <section id="about" className="page active">
       <div className="about-content">
+        <div className="about-image">
+          <img src={kdImg} alt="Kuldeep Ghadiali" loading="eager" decoding="async" fetchpriority="high" />
+        </div>
         <div className="about-text">
           <h2>About</h2>
           <p>
@@ -51,7 +55,7 @@ const AboutSection = () => {
                 className="contact-row-item"
                 aria-label="Instagram Profile"
               >
-                <img src={instaLogo} alt="Instagram" className="contact-row-icon" />
+                <img src={instaLogo} alt="Instagram" className="contact-row-icon" loading="lazy" decoding="async" />
                 <span className="contact-row-text">imagegraphy_</span>
               </a>
             </div>
@@ -63,6 +67,6 @@ const AboutSection = () => {
       </div>
     </section>
   );
-};
+});
 
 export default AboutSection;

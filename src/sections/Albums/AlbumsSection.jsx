@@ -1,8 +1,29 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, memo } from 'react';
 
 import { projectsData } from '../../data/projectsData';
 
-const ProjectItem = ({ project, idx, onClick }) => {
+const resetScrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  if (document.documentElement) {
+    document.documentElement.scrollTop = 0;
+    document.documentElement.scrollLeft = 0;
+  }
+  if (document.body) {
+    document.body.scrollTop = 0;
+    document.body.scrollLeft = 0;
+  }
+  const scrollables = document.querySelectorAll(
+    '.project-details-container, .projects, .lightbox-overlay, .main-content'
+  );
+  scrollables.forEach((el) => {
+    if (el) {
+      el.scrollTop = 0;
+      el.scrollLeft = 0;
+    }
+  });
+};
+
+const ProjectItem = memo(({ project, idx, onClick }) => {
   const [visible, setVisible] = useState(false);
   const itemRef = useRef(null);
 
@@ -32,12 +53,30 @@ const ProjectItem = ({ project, idx, onClick }) => {
       className={`project ${isLeft ? 'slide-from-left' : 'slide-from-right'} ${visible ? 'is-visible' : ''}`}
       onClick={onClick}
     >
-      <img src={project.cover} alt={project.title || `Project ${idx + 1}`} loading="lazy" />
+      <img
+        src={project.cover}
+        alt={project.title || `Project ${idx + 1}`}
+        loading={idx < 2 ? 'eager' : 'lazy'}
+        decoding="async"
+        fetchpriority={idx < 2 ? 'high' : 'auto'}
+      />
     </div>
   );
-};
+});
 
-const AlbumsSection = ({
+const ProjectDetailThumb = memo(({ imgSrc, alt, imgIdx, onClick }) => (
+  <div className="project-detail-thumb" onClick={onClick}>
+    <img
+      src={imgSrc}
+      alt={alt}
+      loading={imgIdx < 8 ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchpriority={imgIdx < 4 ? 'high' : 'auto'}
+    />
+  </div>
+));
+
+const AlbumsSection = memo(({
   albumViewerIndex,
   setAlbumViewerIndex,
   onUpdateProjectViewerState,
@@ -48,10 +87,19 @@ const AlbumsSection = ({
   const [showGalleryGrid, setShowGalleryGrid] = useState(false);
   const [hoverZone, setHoverZone] = useState(null);
 
+  useLayoutEffect(() => {
+    resetScrollToTop();
+    const rafId = requestAnimationFrame(() => {
+      resetScrollToTop();
+    });
+    return () => cancelAnimationFrame(rafId);
+  }, [activeProjIndex, showGalleryGrid, activeImgIndex]);
+
   const openProjectGallery = (pIdx) => {
     setActiveProjIndex(pIdx);
     setActiveImgIndex(0);
     setShowGalleryGrid(true);
+    resetScrollToTop();
     if (typeof setAlbumViewerIndex === 'function') setAlbumViewerIndex(pIdx);
   };
 
@@ -59,12 +107,14 @@ const AlbumsSection = ({
     setActiveProjIndex(null);
     setActiveImgIndex(0);
     setShowGalleryGrid(false);
+    resetScrollToTop();
     if (typeof setAlbumViewerIndex === 'function') setAlbumViewerIndex(null);
   };
 
   const openSingleView = (imgIdx) => {
     setActiveImgIndex(imgIdx);
     setShowGalleryGrid(false);
+    resetScrollToTop();
   };
 
   useEffect(() => {
@@ -72,14 +122,27 @@ const AlbumsSection = ({
       setActiveProjIndex(albumViewerIndex);
       setActiveImgIndex(0);
       setShowGalleryGrid(true);
+      resetScrollToTop();
     } else if (albumViewerIndex === null) {
       setActiveProjIndex(null);
       setShowGalleryGrid(false);
+      resetScrollToTop();
     }
   }, [albumViewerIndex]);
 
   const activeProject = activeProjIndex !== null ? projectsData[activeProjIndex] : null;
   const projectImages = activeProject ? activeProject.images : [];
+
+  // Preload adjacent images for smooth single image navigation
+  useEffect(() => {
+    if (!projectImages || projectImages.length <= 1) return;
+    const nextIdx = (activeImgIndex + 1) % projectImages.length;
+    const prevIdx = (activeImgIndex - 1 + projectImages.length) % projectImages.length;
+    const img1 = new Image();
+    img1.src = projectImages[nextIdx];
+    const img2 = new Image();
+    img2.src = projectImages[prevIdx];
+  }, [activeImgIndex, projectImages]);
 
   const goPrev = () => {
     if (!projectImages.length) return;
@@ -221,16 +284,16 @@ const AlbumsSection = ({
 
           <div className="project-details-grid">
             {projectImages.map((imgSrc, imgIdx) => (
-              <div
-                key={imgIdx}
-                className="project-detail-thumb"
+              <ProjectDetailThumb
+                key={imgSrc}
+                imgSrc={imgSrc}
+                alt={`${activeProject.title} ${imgIdx + 1}`}
+                imgIdx={imgIdx}
                 onClick={(e) => {
                   e.stopPropagation();
                   openSingleView(imgIdx);
                 }}
-              >
-                <img src={imgSrc} alt={`${activeProject.title} ${imgIdx + 1}`} loading="lazy" />
-              </div>
+              />
             ))}
           </div>
         </div>
@@ -263,11 +326,13 @@ const AlbumsSection = ({
             alt={`${activeProject.title} ${activeImgIndex + 1}`}
             loading="eager"
             onClick={handleImageClick}
+            decoding="async"
+            fetchpriority="high"
           />
         </div>
       </main>
     </section>
   );
-};
+});
 
 export default AlbumsSection;
