@@ -73,25 +73,27 @@ const Sidebar = memo(({
           </Link>
         </div>
 
-        <a
-          href="https://www.instagram.com/imagegraphy_/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mobile-insta-link"
-          aria-label="Instagram"
-        >
-          <img src={instaLogo} alt="Instagram" loading="lazy" decoding="async" />
-        </a>
+        <div className="mobile-header-controls">
+          <a
+            href="https://www.instagram.com/imagegraphy_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-insta-link"
+            aria-label="Instagram"
+          >
+            <img src={instaLogo} alt="Instagram" loading="lazy" decoding="async" />
+          </a>
 
-        <label className="mobile-menu-title" htmlFor="site-menu-toggle" aria-label="Toggle navigation menu">
-          Menu
-        </label>
+          <label className="mobile-menu-title" htmlFor="site-menu-toggle" aria-label="Toggle navigation menu">
+            Menu
+          </label>
 
-        <label className="hamburger" htmlFor="site-menu-toggle" aria-label="Toggle navigation menu">
-          <span />
-          <span />
-          <span />
-        </label>
+          <label className="hamburger" htmlFor="site-menu-toggle" aria-label="Toggle navigation menu">
+            <span />
+            <span />
+            <span />
+          </label>
+        </div>
       </div>
 
       <div className="sidebar-drawer">
