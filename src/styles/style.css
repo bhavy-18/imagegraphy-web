@@ -1379,8 +1379,9 @@ img {
         max-width: 100%;
     }
 
+    /* Mobile header Instagram: hidden by default when menu is closed. Only show it when the menu is open (checkbox checked). */
     .mobile-insta-link {
-        display: inline-flex;
+        display: none;
         align-items: center;
         justify-content: center;
         width: 2rem;
@@ -1388,6 +1389,11 @@ img {
         flex: 0 0 auto;
         margin: 0;
         text-decoration: none;
+    }
+
+    /* Show mobile insta link when the menu is open. */
+    .menu-toggle:checked + .sidebar-header .mobile-insta-link {
+        display: inline-flex;
     }
 
     .mobile-insta-link img {
