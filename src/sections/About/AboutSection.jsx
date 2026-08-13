@@ -7,9 +7,6 @@ const AboutSection = memo(() => {
   return (
     <section id="about" className="page active">
       <div className="about-content">
-        <div className="about-image">
-          <img src={kdImg} alt="Kuldeep Ghadiali" loading="eager" decoding="async" fetchpriority="high" />
-        </div>
         <div className="about-text">
           <h2>About</h2>
           <p>
