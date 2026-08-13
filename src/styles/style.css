@@ -192,6 +192,7 @@ img {
     width: 1.125rem;
     height: auto;
     margin-left: 8em;
+    position: flex;
     cursor: pointer;
     transition: opacity 0.3s ease;
     animation: scaleIn 360ms ease both;
@@ -729,58 +730,61 @@ img {
 /* About Section */
 .about-section {
     min-height: 100svh;
-    padding: 6.25rem 4.375rem;
+    padding: 4rem var(--content-gutter);
     align-items: center;
 }
 
 .about-content {
     display: grid;
-    width: min(100%, 70rem);
-    margin-top: 1.25rem;
-    margin-left: var(--about-left);
-    grid-template-columns: 1fr minmax(18rem, 1fr);
-    gap: var(--about-gap);
-    align-items: center;
+    width: min(calc(100% - 12rem), 85rem);
+    min-height: 0;
+    margin: 0 0 0 clamp(11rem, 12.7vw, 15rem);
+    padding: 0;
+    grid-template-columns: minmax(0, 1.4fr) minmax(25rem, 1fr);
+    gap: clamp(2.5rem, 3.3vw, 4rem);
+    align-items: start;
 }
 
 .about-image {
     width: 100%;
-    height: auto;
-    order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6.125rem;
     animation: fadeLeft 420ms ease both;
 }
 
 .about-image img {
     display: block;
     width: 100%;
-    max-width: 25rem;
+    max-width: none;
     height: auto;
-    margin: 2.5rem 0 0.625rem;
-    object-fit: contain;
-    object-position: top center;
+    margin: 0;
+    object-fit: cover;
+    object-position: center;
     animation: imageReveal 520ms ease both;
     image-rendering: -webkit-optimize-contrast;
 }
 
 .about-text {
-    max-width: 34.375rem;
-    margin-left: 3.125rem;
-    order: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     cursor: text;
     animation: fadeRight 420ms ease both;
 }
 
 .about-text h2 {
-    margin-bottom: 3rem;
-    margin-left: 1.5rem;
-    padding-top: 2.5rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    margin-left: 0;
+    padding-top: 0;
     font-size: var(--heading-md);
     font-weight: 400;
 }
 
 .about-text p {
-    margin-bottom: 2rem;
-    margin-left: 1.25rem;
+    margin-bottom: 1.5rem;
+    margin-left: 0;
     color: #666;
     font-family: Arial, Helvetica, sans-serif;
     font-size: var(--text-lg);
@@ -793,8 +797,8 @@ img {
 
 /* About Contact Subsection */
 .about-contact-section {
-    margin-top: 2.5rem;
-    margin-left: 1.25rem;
+    margin-top: 2rem;
+    margin-left: 0;
 }
 
 .about-contact-title {
@@ -995,6 +999,14 @@ img {
     }
 }
 
+@media (max-width: 2560px) {
+
+    .social a img {
+        margin-left: 5rem;
+    }
+}
+
+
 @media (max-width: 1600px) {
     :root {
         --page-offset: 11rem;
@@ -1015,6 +1027,10 @@ img {
         --about-left: 6.25rem;
         --image-pad-right: 5rem;
     }
+
+    .social a img {
+        margin-left: 5rem;
+    }
 }
 
 @media (max-width: 1280px) {
@@ -1033,13 +1049,14 @@ img {
         --about-gap: 3.125rem;
     }
 
+
     .projects-grid {
         margin-top: 4.375rem;
         margin-bottom: 4.375rem;
     }
 
     .about-image img {
-        max-width: 21.875rem;
+        max-width: none;
     }
 }
 
@@ -1072,7 +1089,7 @@ img {
         display: block;
         width: 100%;
         height: auto;
-        margin-left: 2rem;
+        margin-left: 2.5rem;
         image-rendering: -webkit-optimize-contrast;
     }
 
@@ -1080,8 +1097,8 @@ img {
         font-size: 1.125rem;
     }
 
-    .social img {
-        margin-left: 7em;
+    .social a img {
+        margin-left: 5rem;
     }
 
     .bottom-nav,
@@ -1127,8 +1144,15 @@ img {
     }
 
     .about-image {
-        order: 2;
+        order: -1;
+        justify-content: center;
+        padding-top: 0;
+    }
 
+    .about-content {
+        width: min(100% - (2 * var(--content-gutter)), 42rem);
+        min-height: 0;
+        grid-template-columns: 1fr;
     }
 
     .about-image img {
@@ -1139,25 +1163,18 @@ img {
     }
 
     .about-text h2 {
-        margin-bottom: 20px;
-        margin-left: 8rem;
+        margin-bottom: 1.5rem;
+        margin-left: 2rem;
     }
 
     .about-text p {
-        padding-left: 100px;
-        display: block;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 10px;
-        margin-inline-end: 0px;
-        unicode-bidi: isolate;
-
+        margin-left: 2rem;
     }
 
     .about-contact-section {
-        margin-top: 2.5rem;
-        margin-left: 7em;
-        padding-bottom: 3em;
+        margin-top: 2rem;
+        margin-left: 2rem;
+        padding-bottom: 0;
     }
 
 
@@ -1480,7 +1497,8 @@ img {
     .about-content {
         width: 100%;
         max-width: 100%;
-        margin: 1.5rem 0 2.5rem;
+        min-height: 0;
+        margin: 0;
         padding: 0 var(--content-gutter);
         grid-template-columns: 1fr;
         gap: 1.75rem;
@@ -1488,7 +1506,6 @@ img {
     }
 
     .about-image {
-        order: -1;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -1545,6 +1562,19 @@ img {
 
     .contact-row-text {
         font-size: clamp(0.9375rem, 3.8vw, 1.0625rem);
+    }
+}
+
+/* Keep the desktop sidebar Instagram link centered below the menu. */
+@media (min-width: 821px) {
+    .social {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .social img {
+        margin-left: 0;
     }
 }
 
@@ -1605,6 +1635,7 @@ img {
     .contact-row-group {
         gap: 0.875rem;
     }
+
 }
 
 @media (max-width: 375px) {

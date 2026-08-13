@@ -118,10 +118,14 @@ const OverviewSection = ({
             className="image"
             onPointerMove={handlePointerMove}
             onPointerLeave={handlePointerLeave}
-            onClick={handleMobileImageClick}
             style={{ cursor: cursorStyle }}
           >
-            <img src={currentMobileImg} alt={`Overview slide ${mobileActiveIndex + 1}`} loading="eager" />
+            <img
+              src={currentMobileImg}
+              alt={`Overview slide ${mobileActiveIndex + 1}`}
+              loading="eager"
+              onClick={handleMobileImageClick}
+            />
           </div>
         </main>
       </section>

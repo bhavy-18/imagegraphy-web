@@ -193,17 +193,7 @@ const AlbumsSection = ({
   if (showGalleryGrid) {
     return (
       <section id="projects" className="page active projects">
-        <div
-          className="project-details-container"
-          onClick={(e) => {
-            if (
-              e.target === e.currentTarget ||
-              e.target.classList.contains('project-details-container')
-            ) {
-              closeViewer();
-            }
-          }}
-        >
+        <div className="project-details-container">
           <div className="project-details-header" style={{ marginBottom: '1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <button
               onClick={closeViewer}
@@ -265,7 +255,6 @@ const AlbumsSection = ({
           className="image"
           onPointerMove={handlePointerMove}
           onPointerLeave={handlePointerLeave}
-          onClick={handleImageClick}
           style={{ cursor: cursorStyle }}
         >
           <img
@@ -273,6 +262,7 @@ const AlbumsSection = ({
             src={projectImages[activeImgIndex]}
             alt={`${activeProject.title} ${activeImgIndex + 1}`}
             loading="eager"
+            onClick={handleImageClick}
           />
         </div>
       </main>
