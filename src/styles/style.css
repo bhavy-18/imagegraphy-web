@@ -1716,13 +1716,24 @@ img {
 }
 
 @media (max-width: 1024px) {
+    @media (min-width: 821px) {
+        #about.page {
+            width: calc(100% - var(--sidebar-width));
+            max-width: calc(100% - var(--sidebar-width));
+            margin-left: var(--sidebar-width);
+            box-sizing: border-box;
+        }
+    }
+
     #about .about-content {
         display: grid;
         width: min(100% - (2 * var(--content-gutter)), 42rem);
+        max-width: 100%;
         margin: 0 auto;
         padding: clamp(1.5rem, 5vw, 3rem) 0;
         grid-template-columns: minmax(0, 1fr);
         gap: clamp(1.5rem, 4vw, 2.25rem);
+        box-sizing: border-box;
     }
 
     #about .about-image {
@@ -1748,6 +1759,42 @@ img {
 
     #about .about-text p {
         padding-left: 0;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Keep the About columns fluid beside the fixed sidebar on tablets and laptops. */
+@media (min-width: 821px) and (max-width: 1440px) {
+    #about.page {
+        width: calc(100% - var(--sidebar-width));
+        max-width: calc(100% - var(--sidebar-width));
+        margin-left: var(--sidebar-width);
+        box-sizing: border-box;
+    }
+
+    #about .about-content {
+        display: grid;
+        width: min(calc(100% - clamp(2.5rem, 6vw, 5rem)), 70rem);
+        max-width: 100%;
+        margin: 0 auto;
+        padding: clamp(2rem, 5vw, 4rem) 0;
+        grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.85fr);
+        gap: clamp(1.25rem, 2.5vw, 2.5rem);
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    #about .about-text {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        min-width: 0;
+    }
+
+    #about .about-image {
+        order: 0;
+        min-width: 0;
+        padding-top: 0;
     }
 }
 
