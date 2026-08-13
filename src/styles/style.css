@@ -2,7 +2,7 @@
     --sidebar-width: clamp(16.25rem, 15.625vw, 18.75rem);
     --sidebar-padding-y: clamp(2.5rem, 3.125vw, 3.75rem);
     --sidebar-padding-x: clamp(1.5rem, 2.083vw, 2.5rem);
-    --logo-width: clamp(9.5rem, 9.375vw, 11.25rem);
+    --logo-width: clamp(10.25rem, 10vw, 12rem);
     --logo-indent: clamp(0.75rem, 2vw, 2rem);
     --nav-indent: clamp(1.5rem, 3vw, 3rem);
     --social-indent: clamp(1.5rem, 3vw, 3rem);
@@ -1902,6 +1902,66 @@ img {
 #about .contact-row-text {
     font-size: clamp(0.9375rem, 0.9vw, 1.25rem);
     line-height: 1.5;
+}
+
+/* Keep sidebar branding and its menu-following Instagram link centered at every size. */
+@media (max-width: 820px) {
+    .sidebar-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .logo {
+        grid-column: 2;
+        width: min(9.25rem, 42vw);
+        max-width: none;
+        margin: 0;
+    }
+
+    .mobile-insta-link {
+        display: none;
+    }
+
+    .mobile-menu-title {
+        grid-column: 1;
+        justify-self: start;
+        margin: 0;
+    }
+
+    .hamburger {
+        grid-column: 3;
+        justify-self: end;
+    }
+
+    .sidebar-middle,
+    .menu,
+    .social {
+        width: 100%;
+        align-items: center;
+    }
+
+    .social {
+        display: flex;
+        justify-content: center;
+        margin: 1.5rem auto 0;
+    }
+
+    .social a,
+    .social img {
+        margin: 0;
+    }
+
+    .sidebar .social > a > img {
+        margin: 0;
+    }
+}
+
+@media (min-width: 821px) {
+    .sidebar .social > a > img {
+        margin: 0;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
