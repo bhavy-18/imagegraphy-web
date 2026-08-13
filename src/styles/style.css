@@ -1798,6 +1798,65 @@ img {
     }
 }
 
+/* Let the About section use the available space on ultrawide displays. */
+@media (min-width: 2560px) {
+    #about.page {
+        width: calc(100% - var(--sidebar-width));
+        max-width: calc(100% - var(--sidebar-width));
+        margin-left: var(--sidebar-width);
+        box-sizing: border-box;
+    }
+
+    #about .about-content {
+        width: min(calc(100% - clamp(6rem, 8vw, 14rem)), 130rem);
+        max-width: 100%;
+        margin: 0 auto;
+        padding: clamp(5rem, 7vw, 9rem) 0;
+        grid-template-columns: minmax(0, 1.2fr) minmax(30rem, 0.8fr);
+        gap: clamp(3rem, 5vw, 6rem);
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    #about .about-text {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    #about .about-image {
+        padding-top: 0;
+    }
+
+    #about .about-image img {
+        width: 100%;
+        max-width: clamp(34rem, 28vw, 44rem);
+        height: auto;
+        margin: 0;
+        object-fit: contain;
+    }
+}
+
+/* Responsive type scale for About content and contact details. */
+#about .about-text h2 {
+    font-size: clamp(1.625rem, 1.5vw, 2.5rem);
+}
+
+#about .about-text p {
+    font-size: clamp(1rem, 1.1vw, 1.5rem);
+    line-height: 1.6;
+    margin-bottom: clamp(1.25rem, 2vw, 2rem);
+}
+
+#about .about-contact-title {
+    font-size: clamp(1rem, 1vw, 1.375rem);
+}
+
+#about .contact-row-text {
+    font-size: clamp(0.9375rem, 0.9vw, 1.25rem);
+    line-height: 1.5;
+}
+
 @media (prefers-reduced-motion: reduce) {
 
     *,
