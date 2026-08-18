@@ -38,7 +38,8 @@ const Sidebar = memo(({
     else if (isProjectSingleView && onShowProjectThumbnails) onShowProjectThumbnails();
   };
 
-  const showBottomNav = isOverview || isProjectSingleView;
+  // Hide bottom nav (PREV/NEXT/THUMBNAILS) when the overview thumbnail grid is showing
+  const showBottomNav = (isOverview && !showThumbnails) || isProjectSingleView;
   const isThumbnailsActive = isOverview ? showThumbnails : false;
 
   const closeMobileMenu = () => {

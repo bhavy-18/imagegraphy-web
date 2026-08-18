@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import Sidebar from './components/layout/Sidebar';
+import CopyrightPopup from './components/common/CopyrightPopup';
 import { overviewImages } from './data/overviewImages';
 import { albumImages } from './data/albumImages';
 import AppRoutes from './routes/AppRoutes';
@@ -119,6 +120,7 @@ const App = () => {
           onUpdateProjectViewerState={setProjectViewerState}
           registerProjectHandlers={registerProjectHandlers}
         />
+        <CopyrightPopup />
       </div>
     </BrowserRouter>
   );
