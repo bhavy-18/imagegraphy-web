@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, memo } from 'react';
 
 import { projectsData } from '../../data/projectsData';
+import { SITE_TITLE } from '../../hooks/useDocumentTitle';
 
 const resetScrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -132,6 +133,18 @@ const AlbumsSection = memo(({
 
   const activeProject = activeProjIndex !== null ? projectsData[activeProjIndex] : null;
   const projectImages = activeProject ? activeProject.images : [];
+
+  // Update browser tab title dynamically replacing "Project" with the opened project's name
+  useEffect(() => {
+    if (activeProject && activeProject.title) {
+      document.title = `${activeProject.title} | ${SITE_TITLE}`;
+    } else {
+      document.title = `Project | ${SITE_TITLE}`;
+    }
+    return () => {
+      document.title = `Project | ${SITE_TITLE}`;
+    };
+  }, [activeProject]);
 
   // Preload adjacent images for smooth single image navigation
   useEffect(() => {
@@ -277,9 +290,6 @@ const AlbumsSection = memo(({
             >
               &#8592; BACK TO PROJECTS
             </button>
-            <span style={{ fontSize: '0.875rem', fontWeight: 500, letterSpacing: '0.08em', color: '#111', textTransform: 'uppercase' }}>
-              {activeProject.title}
-            </span>
           </div>
 
           <div className="project-details-grid">
@@ -313,7 +323,7 @@ const AlbumsSection = memo(({
 
   return (
     <section id="projects" className="page active projects">
-      <main className="main-content">
+      <main className="main-content project-single-main">
         <div
           className="image"
           onPointerMove={handlePointerMove}
