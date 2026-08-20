@@ -62,9 +62,9 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    image-rendering: -webkit-optimize-contrast;
+    /* image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    image-rendering: auto;
+    image-rendering: auto; */
 }
 
 #root,
@@ -160,8 +160,8 @@ img {
     width: 100%;
     height: auto;
     margin: 0 auto;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: auto;
+    /* image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto; */
 }
 
 /* Menu + Social Container */
@@ -309,7 +309,8 @@ img {
     width: clamp(0px, calc(100% - var(--overview-offset)), 100%);
     min-height: 100svh;
     min-height: 100vh;
-    margin-left: var(--overview-offset);
+    /* margin-left: var(--overview-offset); */
+    margin-left: 335px;
     overflow: hidden;
 }
 
@@ -340,8 +341,8 @@ img {
     animation: imageReveal 520ms ease both;
     will-change: opacity, transform;
     transition: transform 240ms ease, opacity 240ms ease;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: auto;
+    /* image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto; */
 }
 
 .image:hover img {
@@ -362,7 +363,7 @@ img {
 
 .overview-thumbnails-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(var(--thumb-cols, 5), minmax(0, 1fr));
     gap: 10px;
     width: 100%;
     max-width: 100%;
@@ -387,8 +388,8 @@ img {
     object-position: center;
     transition: opacity 0.3s ease, transform 0.3s ease;
     animation: imageReveal 520ms ease both;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: auto;
+    /* image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto; */
 }
 
 .overview-thumb-item:hover img {
@@ -405,17 +406,23 @@ img {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin: 4.375rem var(--content-gutter) 4.375rem var(--project-left);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    margin: 4.375rem 0;
+    /* Indent past the fixed sidebar; never let the grid slip under it. */
+    padding-left: max(var(--project-left), calc(var(--sidebar-width) - var(--page-offset) + 1.25rem));
+    padding-right: 5.125rem;
+    width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 .project {
     position: relative;
     width: 100%;
     overflow: hidden;
-    aspect-ratio: 4 / 3;
+    /* aspect-ratio: 4 / 3; */
+    aspect-ratio: 5 / 4;
     transition: transform 0.3s ease;
     cursor: pointer;
     will-change: transform, opacity;
@@ -463,8 +470,8 @@ img {
     height: 100%;
     object-position: center;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: auto;
+    /* image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto; */
 }
 
 /* Project Thumbnail Grid (imagegraphy.ca responsive layout) */
@@ -481,7 +488,7 @@ img {
 
 .project-details-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(var(--details-cols, 5), minmax(0, 1fr));
     gap: 10px;
     width: 100%;
     max-width: 100%;
@@ -507,8 +514,8 @@ img {
     object-fit: cover;
     object-position: center;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: auto;
+    /* image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto; */
 }
 
 /* Project single-image view: vertically centered like Overview */
@@ -728,7 +735,7 @@ img {
     object-position: center;
     animation: fadeIn 200ms ease both;
     pointer-events: none;
-    image-rendering: -webkit-optimize-contrast;
+    /* image-rendering: -webkit-optimize-contrast; */
 }
 
 /* Thumbnail strip at bottom */
@@ -775,7 +782,7 @@ img {
     object-position: center;
     display: block;
     pointer-events: none;
-    image-rendering: -webkit-optimize-contrast;
+    /* image-rendering: -webkit-optimize-contrast; */
 }
 
 .album-strip-thumb--active {
@@ -843,7 +850,7 @@ img {
     object-fit: cover;
     object-position: center;
     animation: imageReveal 520ms ease both;
-    image-rendering: -webkit-optimize-contrast;
+    /* image-rendering: -webkit-optimize-contrast; */
 }
 
 .about-text {
@@ -1112,8 +1119,15 @@ img {
     }
 }
 
+@media (max-width: 1538px) {
+    :root {
+        --details-cols: 4;
+    }
+}
+
 @media (max-width: 1440px) {
     :root {
+        --thumb-cols: 4;
         --sidebar-width: 17rem;
         --page-offset: 9rem;
         --overview-offset: 17rem;
@@ -1126,6 +1140,8 @@ img {
 
 @media (max-width: 1280px) {
     :root {
+        --thumb-cols: 3;
+        --details-cols: 3;
         --sidebar-width: 16.25rem;
         --sidebar-padding-y: 2.5rem;
         --sidebar-padding-x: 1.25rem;
@@ -1180,7 +1196,7 @@ img {
         width: 100%;
         height: auto;
         margin: 0 auto;
-        image-rendering: -webkit-optimize-contrast;
+        /* image-rendering: -webkit-optimize-contrast; */
     }
 
     .menu a {
@@ -1574,6 +1590,8 @@ img {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
         margin: 1.5rem var(--content-gutter) 2.5rem;
+        padding-left: 0;
+        padding-right: 0;
         max-width: 100%;
         box-sizing: border-box;
     }
@@ -1731,7 +1749,7 @@ img {
     }
 
     .project-details-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 6px;
     }
 }
@@ -1772,7 +1790,7 @@ img {
     }
 
     .project-details-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 4px;
     }
 
