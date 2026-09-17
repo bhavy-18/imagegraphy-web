@@ -30,13 +30,6 @@ const AboutSection = memo(() => {
                 <Mail size={20} strokeWidth={1.75} className="contact-row-icon contact-multi-icon" />
                 <div className="contact-emails-stacked">
                   <a
-                    href="mailto:kd1894@gmail.com"
-                    className="contact-email-link"
-                    aria-label="Email kd1894@gmail.com"
-                  >
-                    <span className="contact-row-text">kd1894@gmail.com</span>
-                  </a>
-                  <a
                     href="mailto:kd@imagegraphy.com"
                     className="contact-email-link"
                     aria-label="Email kd@imagegraphy.com"

@@ -309,8 +309,7 @@ img {
     width: clamp(0px, calc(100% - var(--overview-offset)), 100%);
     min-height: 100svh;
     min-height: 100vh;
-    /* margin-left: var(--overview-offset); */
-    margin-left: 335px;
+    margin-left: 250px;
     overflow: hidden;
 }
 

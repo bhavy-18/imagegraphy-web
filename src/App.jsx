@@ -6,10 +6,12 @@ import CopyrightPopup from './components/common/CopyrightPopup';
 import { overviewImages } from './data/overviewImages';
 import { albumImages } from './data/albumImages';
 import AppRoutes from './routes/AppRoutes';
+import useDisableImageDrag from './hooks/useDisableImageDrag';
 import './styles/animations.css';
 import './styles/style.css';
 
 const App = () => {
+  useDisableImageDrag();
   const [overviewIndex, setOverviewIndex] = useState(0);
   const [showThumbnails, setShowThumbnails] = useState(false);
   const [albumViewerIndex, setAlbumViewerIndex] = useState(null);

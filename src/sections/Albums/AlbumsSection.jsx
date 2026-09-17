@@ -1,7 +1,8 @@
-import { useEffect, useLayoutEffect, useRef, useState, memo } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, useCallback, memo } from 'react';
 
 import { projectsData } from '../../data/projectsData';
 import { SITE_TITLE } from '../../hooks/useDocumentTitle';
+import { getImageNavZone, isInteractiveElement } from '../../utils/imageNav';
 
 const resetScrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -88,6 +89,8 @@ const AlbumsSection = memo(({
   const [showGalleryGrid, setShowGalleryGrid] = useState(false);
   const [hoverZone, setHoverZone] = useState(null);
 
+  const imgRef = useRef(null);
+
   useLayoutEffect(() => {
     resetScrollToTop();
     const rafId = requestAnimationFrame(() => {
@@ -157,15 +160,15 @@ const AlbumsSection = memo(({
     img2.src = projectImages[prevIdx];
   }, [activeImgIndex, projectImages]);
 
-  const goPrev = () => {
+  const goPrev = useCallback(() => {
     if (!projectImages.length) return;
     setActiveImgIndex((current) => (current === 0 ? projectImages.length - 1 : current - 1));
-  };
+  }, [projectImages.length]);
 
-  const goNext = () => {
+  const goNext = useCallback(() => {
     if (!projectImages.length) return;
     setActiveImgIndex((current) => (current === projectImages.length - 1 ? 0 : current + 1));
-  };
+  }, [projectImages.length]);
 
   useEffect(() => {
     if (typeof onUpdateProjectViewerState === 'function') {
@@ -187,7 +190,7 @@ const AlbumsSection = memo(({
         }
       });
     }
-  }, [projectImages, registerProjectHandlers]);
+  }, [projectImages, registerProjectHandlers, goPrev, goNext]);
 
   useEffect(() => {
     const handleKeydown = (event) => {
@@ -203,48 +206,67 @@ const AlbumsSection = memo(({
 
     window.addEventListener('keydown', handleKeydown);
     return () => window.removeEventListener('keydown', handleKeydown);
-  }, [activeProjIndex, showGalleryGrid, projectImages]);
+  }, [activeProjIndex, showGalleryGrid, projectImages, goPrev, goNext]);
 
-  const getZone = (clientX, width, left) => {
-    const x = clientX - left;
-    const third = width / 3;
-    if (x < third) return 'prev';
-    if (x > width - third) return 'next';
-    return 'center';
-  };
+  // --- Full-screen background click & hover navigation for single image viewer ---
+  useEffect(() => {
+    // Only active in Level 3: Single Image View
+    if (activeProjIndex === null || showGalleryGrid) {
+      document.body.style.cursor = '';
+      return;
+    }
 
-  const handlePointerMove = (e) => {
-    const imgEl = e.currentTarget.querySelector('img');
-    if (!imgEl || (e.target !== imgEl && !imgEl.contains(e.target))) {
+    const handlePointerMove = (e) => {
+      if (isInteractiveElement(e.target)) {
+        setHoverZone(null);
+        document.body.style.cursor = '';
+        return;
+      }
+      const zone = getImageNavZone(e.clientX, e.clientY, imgRef.current);
+      setHoverZone(zone);
+      const cursor =
+        zone === 'prev'
+          ? 'w-resize'
+          : zone === 'next'
+            ? 'e-resize'
+            : zone === 'center'
+              ? 'pointer'
+              : '';
+      document.body.style.cursor = cursor;
+    };
+
+    const handlePointerLeave = () => {
       setHoverZone(null);
-      return;
-    }
-    const rect = imgEl.getBoundingClientRect();
-    setHoverZone(getZone(e.clientX, rect.width, rect.left));
-  };
+      document.body.style.cursor = '';
+    };
 
-  const handlePointerLeave = () => {
-    setHoverZone(null);
-  };
+    const handleWindowClick = (e) => {
+      if (e.button !== 0) return;
+      if (isInteractiveElement(e.target)) {
+        return;
+      }
 
-  const handleImageClick = (e) => {
-    if (e.target.tagName !== 'IMG') return;
+      const zone = getImageNavZone(e.clientX, e.clientY, imgRef.current);
+      if (zone === 'prev') {
+        goPrev();
+      } else if (zone === 'next') {
+        goNext();
+      } else if (zone === 'center') {
+        setShowGalleryGrid(true);
+      }
+    };
 
-    const rect = e.target.getBoundingClientRect();
-    const zone = getZone(e.clientX, rect.width, rect.left);
+    window.addEventListener('pointermove', handlePointerMove);
+    document.addEventListener('pointerleave', handlePointerLeave);
+    window.addEventListener('click', handleWindowClick, true);
 
-    if (zone === 'prev') {
-      goPrev();
-      return;
-    }
-
-    if (zone === 'next') {
-      goNext();
-      return;
-    }
-
-    setShowGalleryGrid(true);
-  };
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+      document.removeEventListener('pointerleave', handlePointerLeave);
+      window.removeEventListener('click', handleWindowClick, true);
+      document.body.style.cursor = '';
+    };
+  }, [activeProjIndex, showGalleryGrid, projectImages, goPrev, goNext]);
 
   // Level 1: Main 2-Column Projects List
   if (!activeProject) {
@@ -322,20 +344,18 @@ const AlbumsSection = memo(({
           : 'auto';
 
   return (
-    <section id="projects" className="page active projects">
-      <main className="main-content project-single-main">
+    <section id="projects" className="page active projects" style={{ cursor: cursorStyle }}>
+      <main className="main-content project-single-main" style={{ cursor: cursorStyle }}>
         <div
           className="image"
-          onPointerMove={handlePointerMove}
-          onPointerLeave={handlePointerLeave}
           style={{ cursor: cursorStyle }}
         >
           <img
+            ref={imgRef}
             key={activeImgIndex}
             src={projectImages[activeImgIndex]}
             alt={`${activeProject.title} ${activeImgIndex + 1}`}
             loading="eager"
-            onClick={handleImageClick}
             decoding="async"
             fetchpriority="high"
           />

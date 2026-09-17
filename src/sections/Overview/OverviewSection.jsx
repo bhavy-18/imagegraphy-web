@@ -1,6 +1,7 @@
-import { useState, useEffect, memo } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { overviewImages } from '../../data/overviewImages';
+import { getImageNavZone, isInteractiveElement } from '../../utils/imageNav';
 
 const OverviewThumbItem = memo(({ imgSrc, alt, idx, onClick }) => (
   <div className="overview-thumb-item" onClick={onClick}>
@@ -26,6 +27,9 @@ const OverviewSection = memo(({
   const navigate = useNavigate();
   const location = useLocation();
   const [hoverZone, setHoverZone] = useState(null);
+
+  const desktopImgRef = useRef(null);
+  const mobileImgRef = useRef(null);
 
   // Mobile-specific state
   const [isMobile, setIsMobile] = useState(
@@ -62,27 +66,119 @@ const OverviewSection = memo(({
     img2.src = overviewImages[prevIdx];
   }, [overviewIndex, mobileActiveIndex, isMobile]);
 
-  const getZone = (clientX, width, left) => {
-    const x = clientX - left;
-    const third = width / 3;
-    if (x < third) return 'prev';
-    if (x > width - third) return 'next';
-    return 'center';
-  };
-
-  const handlePointerMove = (e) => {
-    const imgEl = e.currentTarget.querySelector('img');
-    if (!imgEl || (e.target !== imgEl && !imgEl.contains(e.target))) {
-      setHoverZone(null);
+  // --- DESKTOP: Full-screen background click & hover navigation ---
+  useEffect(() => {
+    if (isMobile || showThumbnails) {
+      document.body.style.cursor = '';
       return;
     }
-    const rect = imgEl.getBoundingClientRect();
-    setHoverZone(getZone(e.clientX, rect.width, rect.left));
-  };
 
-  const handlePointerLeave = () => {
-    setHoverZone(null);
-  };
+    const handlePointerMove = (e) => {
+      if (isInteractiveElement(e.target)) {
+        setHoverZone(null);
+        document.body.style.cursor = '';
+        return;
+      }
+      const zone = getImageNavZone(e.clientX, e.clientY, desktopImgRef.current);
+      setHoverZone(zone);
+      const cursor =
+        zone === 'prev'
+          ? 'w-resize'
+          : zone === 'next'
+            ? 'e-resize'
+            : zone === 'center'
+              ? 'pointer'
+              : '';
+      document.body.style.cursor = cursor;
+    };
+
+    const handlePointerLeave = () => {
+      setHoverZone(null);
+      document.body.style.cursor = '';
+    };
+
+    const handleWindowClick = (e) => {
+      // Only process primary clicks
+      if (e.button !== 0) return;
+
+      // Do NOT trigger navigation if clicking sidebar or interactive controls
+      if (isInteractiveElement(e.target)) {
+        return;
+      }
+
+      const zone = getImageNavZone(e.clientX, e.clientY, desktopImgRef.current);
+      if (zone === 'prev') {
+        onPrevOverview();
+      } else if (zone === 'next') {
+        onNextOverview();
+      } else if (zone === 'center') {
+        if (onToggleThumbnails) {
+          onToggleThumbnails();
+        }
+      }
+    };
+
+    window.addEventListener('pointermove', handlePointerMove);
+    document.addEventListener('pointerleave', handlePointerLeave);
+    window.addEventListener('click', handleWindowClick, true);
+
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+      document.removeEventListener('pointerleave', handlePointerLeave);
+      window.removeEventListener('click', handleWindowClick, true);
+      document.body.style.cursor = '';
+    };
+  }, [isMobile, showThumbnails, onPrevOverview, onNextOverview, onToggleThumbnails]);
+
+  // --- MOBILE: Full-screen background tap navigation for single view ---
+  useEffect(() => {
+    if (!isMobile || mobileActiveIndex === null) {
+      document.body.style.cursor = '';
+      return;
+    }
+
+    const handleMobilePointerMove = (e) => {
+      if (isInteractiveElement(e.target)) {
+        setHoverZone(null);
+        document.body.style.cursor = '';
+        return;
+      }
+      const zone = getImageNavZone(e.clientX, e.clientY, mobileImgRef.current);
+      setHoverZone(zone);
+    };
+
+    const handleMobilePointerLeave = () => {
+      setHoverZone(null);
+      document.body.style.cursor = '';
+    };
+
+    const handleMobileWindowClick = (e) => {
+      if (e.button !== 0) return;
+      if (isInteractiveElement(e.target)) {
+        return;
+      }
+
+      const zone = getImageNavZone(e.clientX, e.clientY, mobileImgRef.current);
+      if (zone === 'prev') {
+        setMobileActiveIndex((prev) => (prev === 0 ? overviewImages.length - 1 : prev - 1));
+      } else if (zone === 'next') {
+        setMobileActiveIndex((prev) => (prev === overviewImages.length - 1 ? 0 : prev + 1));
+      } else if (zone === 'center') {
+        setMobileActiveIndex(null);
+      }
+    };
+
+    window.addEventListener('pointermove', handleMobilePointerMove);
+    document.addEventListener('pointerleave', handleMobilePointerLeave);
+    window.addEventListener('click', handleMobileWindowClick, true);
+
+    return () => {
+      window.removeEventListener('pointermove', handleMobilePointerMove);
+      document.removeEventListener('pointerleave', handleMobilePointerLeave);
+      window.removeEventListener('click', handleMobileWindowClick, true);
+      document.body.style.cursor = '';
+    };
+  }, [isMobile, mobileActiveIndex]);
 
   // --- MOBILE VIEW: Open full image gallery catalog by default ---
   if (isMobile) {
@@ -108,25 +204,6 @@ const OverviewSection = memo(({
 
     const currentMobileImg = overviewImages[mobileActiveIndex] || overviewImages[0];
 
-    const handleMobileImageClick = (e) => {
-      if (e.target.tagName !== 'IMG') return;
-
-      const rect = e.target.getBoundingClientRect();
-      const zone = getZone(e.clientX, rect.width, rect.left);
-
-      if (zone === 'prev') {
-        setMobileActiveIndex((prev) => (prev === 0 ? overviewImages.length - 1 : prev - 1));
-        return;
-      }
-
-      if (zone === 'next') {
-        setMobileActiveIndex((prev) => (prev === overviewImages.length - 1 ? 0 : prev + 1));
-        return;
-      }
-
-      setMobileActiveIndex(null);
-    };
-
     const cursorStyle =
       hoverZone === 'prev'
         ? 'w-resize'
@@ -137,15 +214,20 @@ const OverviewSection = memo(({
             : 'auto';
 
     return (
-      <section id="overview" className="page active">
-        <main className="main-content">
+      <section id="overview" className="page active" style={{ cursor: cursorStyle }}>
+        <main className="main-content" style={{ cursor: cursorStyle }}>
           <div
             className="image"
-            onPointerMove={handlePointerMove}
-            onPointerLeave={handlePointerLeave}
             style={{ cursor: cursorStyle }}
           >
-            <img src={currentMobileImg} alt={`Overview slide ${mobileActiveIndex + 1}`} onClick={handleMobileImageClick} loading="eager" decoding="async" fetchpriority="high" />
+            <img
+              ref={mobileImgRef}
+              src={currentMobileImg}
+              alt={`Overview slide ${mobileActiveIndex + 1}`}
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
           </div>
         </main>
       </section>
@@ -154,27 +236,6 @@ const OverviewSection = memo(({
 
   // --- DESKTOP / TABLET VIEW ---
   const currentImg = overviewImages[overviewIndex] || overviewImages[0];
-
-  const handleImageClick = (e) => {
-    if (e.target.tagName !== 'IMG') return;
-
-    const rect = e.target.getBoundingClientRect();
-    const zone = getZone(e.clientX, rect.width, rect.left);
-
-    if (zone === 'prev') {
-      onPrevOverview();
-      return;
-    }
-
-    if (zone === 'next') {
-      onNextOverview();
-      return;
-    }
-
-    if (onToggleThumbnails) {
-      onToggleThumbnails();
-    }
-  };
 
   if (showThumbnails) {
     return (
@@ -206,16 +267,20 @@ const OverviewSection = memo(({
           : 'auto';
 
   return (
-    <section id="overview" className="page active">
-      <main className="main-content">
+    <section id="overview" className="page active" style={{ cursor: cursorStyle }}>
+      <main className="main-content" style={{ cursor: cursorStyle }}>
         <div
           className="image"
-          onPointerMove={handlePointerMove}
-          onPointerLeave={handlePointerLeave}
-          onClick={handleImageClick}
           style={{ cursor: cursorStyle }}
         >
-          <img src={currentImg} alt={`Overview slide ${overviewIndex + 1}`} loading="eager" decoding="async" fetchpriority="high" />
+          <img
+            ref={desktopImgRef}
+            src={currentImg}
+            alt={`Overview slide ${overviewIndex + 1}`}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
       </main>
     </section>
