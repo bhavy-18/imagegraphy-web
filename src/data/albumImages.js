@@ -8,14 +8,14 @@ import albumImage07 from '../assets/images/albums/T_MakowArchitects+Warren-Ave-0
 import albumImage08 from '../assets/images/albums/T_MakowArchitects+Hillmount-08.jpg';
 import albumImage09 from '../assets/images/albums/T_Studio HPA+Go Banana-3-09.jpg';
 import albumImage10 from '../assets/images/albums/T_StudioHPA+Safal-Penthouse-10.jpg';
-import albumImage11 from '../assets/images/albums/album-image-11.jpg';
-import albumImage12 from '../assets/images/albums/album-image-12.jpg';
-import albumImage13 from '../assets/images/albums/album-image-13.jpg';
-import albumImage14 from '../assets/images/albums/album-image-14.jpg';
-import albumImage15 from '../assets/images/albums/album-image-15.jpg';
-import albumImage16 from '../assets/images/albums/album-image-16.jpg';
-import albumImage17 from '../assets/images/albums/album-image-17.jpg';
-import albumImage18 from '../assets/images/albums/album-image-18.jpg';
+import albumImage11 from '../assets/images/albums/T_Shaligram_Prime+EDArchitects-11.jpg';
+import albumImage12 from '../assets/images/albums/T_AIM_School+EDArchitects-12.jpg';
+import albumImage13 from '../assets/images/albums/T_Guelph_Transfer_Station+Ritestart-13.jpg';
+import albumImage14 from '../assets/images/albums/T_Metro_Hall+Ritestart-14.jpg';
+import albumImage15 from '../assets/images/albums/T_The_House_of_Multiple_Courtyards+StudioHPA-15.jpg';
+import albumImage16 from '../assets/images/albums/T_The_Sanand_Retreat+StudioHPA-16.jpg';
+import albumImage17 from '../assets/images/albums/T_The_Peacock_House+StudioHPA-17.jpg';
+import albumImage18 from '../assets/images/albums/T_The_Mashroom_House+StudioHPA-18.jpg';
 
 export const albumImages = [
   albumImage01,
