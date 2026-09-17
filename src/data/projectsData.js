@@ -1,4 +1,4 @@
-﻿import projCover_01 from "../assets/images/project images/01 New folder/04 Ritestart+Caledon+Public+Library-2.webp";
+import projCover_01 from "../assets/images/project images/01 New folder/04 Ritestart+Caledon+Public+Library-2.webp";
 import proj_01_img_1 from "../assets/images/project images/01 New folder/01 Ritestart+Caledon+Public+Library-7.webp";
 import proj_01_img_2 from "../assets/images/project images/01 New folder/02 Ritestart+Caledon+Public+Library-1.webp";
 import proj_01_img_3 from "../assets/images/project images/01 New folder/03 Ritestart+Caledon+Public+Library-3.webp";
@@ -7,16 +7,14 @@ import proj_01_img_5 from "../assets/images/project images/01 New folder/05 Rite
 import proj_01_img_6 from "../assets/images/project images/01 New folder/06 Ritestart+Caledon+Public+Library-6.webp";
 import proj_01_img_7 from "../assets/images/project images/01 New folder/07 Ritestart+Caledon+Public+Library-5.webp";
 
-import projCover_02 from "../assets/images/project images/02 New folder/09 Ritestart+OCAD+Butterfield+Park-9.webp";
-import proj_02_img_1 from "../assets/images/project images/02 New folder/01 Ritestart+OCAD+Butterfield+Park-7.webp";
-import proj_02_img_2 from "../assets/images/project images/02 New folder/02 Ritestart+OCAD+Butterfield+Park-2.webp";
-import proj_02_img_3 from "../assets/images/project images/02 New folder/03 Ritestart+OCAD+Butterfield+Park-3.webp";
-import proj_02_img_4 from "../assets/images/project images/02 New folder/04 Ritestart+OCAD+Butterfield+Park-1.webp";
-import proj_02_img_5 from "../assets/images/project images/02 New folder/05 Ritestart+OCAD+Butterfield+Park-4.webp";
-import proj_02_img_6 from "../assets/images/project images/02 New folder/06 Ritestart+OCAD+Butterfield+Park-8.webp";
-import proj_02_img_7 from "../assets/images/project images/02 New folder/07 Ritestart+OCAD+Butterfield+Park-5.webp";
-import proj_02_img_8 from "../assets/images/project images/02 New folder/08 Ritestart+OCAD+Butterfield+Park-6.webp";
-import proj_02_img_9 from "../assets/images/project images/02 New folder/09 Ritestart+OCAD+Butterfield+Park-9.webp";
+import projCover_02 from "../assets/images/project images/02 New folder/T_Ritestart+OCAD-Butterfield-Park-02.jpg";
+import proj_02_img_1 from "../assets/images/project images/02 New folder/Butterfield_Park+Ritestart+01.jpg";
+import proj_02_img_2 from "../assets/images/project images/02 New folder/Butterfield_Park+Ritestart+02.jpg";
+import proj_02_img_3 from "../assets/images/project images/02 New folder/Butterfield_Park+Ritestart+03.jpg";
+import proj_02_img_4 from "../assets/images/project images/02 New folder/Butterfield_Park+Ritestart+04.jpg";
+import proj_02_img_5 from "../assets/images/project images/02 New folder/Butterfield_Park+Ritestart+05.jpg";
+import proj_02_img_6 from "../assets/images/project images/02 New folder/Butterfield_Park+Ritestart+06.jpg";
+
 
 import projCover_03 from "../assets/images/project images/03 New folder/19 Contempostudio+Palmerston-17.webp";
 import proj_03_img_1 from "../assets/images/project images/03 New folder/Palmerston+Contempo_Studio+01.jpg";
@@ -40,17 +38,16 @@ import proj_03_img_18 from "../assets/images/project images/03 New folder/Palmer
 // import proj_03_img_19 from "../assets/images/project images/03 New folder/Palmerston+Contempo_Studio+19.jpg";
 // import proj_03_img_20 from "../assets/images/project images/03 New folder/Palmerston+Contempo_Studio+20.jpg";
 
-import projCover_04 from "../assets/images/project images/04 New folder/03 Studio+HPA+Anamyam-3.webp";
-import proj_04_img_1 from "../assets/images/project images/04 New folder/01 Studio+HPA+Anamyam-1.webp";
-import proj_04_img_2 from "../assets/images/project images/04 New folder/02 Studio+HPA+Anamyam-2.webp";
-import proj_04_img_3 from "../assets/images/project images/04 New folder/03 Studio+HPA+Anamyam-3.webp";
-import proj_04_img_4 from "../assets/images/project images/04 New folder/04 Studio+HPA+Anamyam-4.webp";
-import proj_04_img_5 from "../assets/images/project images/04 New folder/05 Studio+HPA+Anamyam-5.webp";
-import proj_04_img_6 from "../assets/images/project images/04 New folder/06 Studio+HPA+Anamyam-6.webp";
-import proj_04_img_7 from "../assets/images/project images/04 New folder/07 Studio+HPA+Anamyam-7.webp";
-import proj_04_img_8 from "../assets/images/project images/04 New folder/08 Studio+HPA+Anamyam-10.webp";
-import proj_04_img_9 from "../assets/images/project images/04 New folder/09 Studio+HPA+Anamyam-8.webp";
-import proj_04_img_10 from "../assets/images/project images/04 New folder/10 Studio+HPA+Anamyam-9.webp";
+import projCover_04 from "../assets/images/project images/04 New folder/ZT_Studio HPA+Anamyam-3.jpg";
+import proj_04_img_1 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+01.jpg";
+import proj_04_img_2 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+02.jpg";
+import proj_04_img_3 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+03.jpg";
+import proj_04_img_4 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+033.jpg";
+import proj_04_img_5 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+034.jpg";
+import proj_04_img_6 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+035.jpg";
+import proj_04_img_7 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+036.jpg";
+import proj_04_img_8 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+037.jpg";
+import proj_04_img_9 from "../assets/images/project images/04 New folder/Science_City+Studio_HPA+038.jpg";
 
 import projCover_05 from "../assets/images/project images/05 New folder/01 Frank+Gahrey+AGO-1.webp";
 import proj_05_img_1 from "../assets/images/project images/05 New folder/01 Frank+Gahrey+AGO-1.webp";
@@ -72,60 +69,57 @@ import proj_06_img_6 from "../assets/images/project images/06 New folder/06 ROM-
 import proj_06_img_7 from "../assets/images/project images/06 New folder/07 ROM-7.webp";
 import proj_06_img_8 from "../assets/images/project images/06 New folder/08ROM-8.webp";
 
-import projCover_07 from "../assets/images/project images/07 New folder/01 4.webp";
-import proj_07_img_1 from "../assets/images/project images/07 New folder/01 4.webp";
-import proj_07_img_2 from "../assets/images/project images/07 New folder/02 1.webp";
-import proj_07_img_3 from "../assets/images/project images/07 New folder/03 1+lights+off.webp";
-import proj_07_img_4 from "../assets/images/project images/07 New folder/04 2+lights+off.webp";
-import proj_07_img_5 from "../assets/images/project images/07 New folder/05 3+copy.webp";
-import proj_07_img_6 from "../assets/images/project images/07 New folder/06 4+2.webp";
-import proj_07_img_7 from "../assets/images/project images/07 New folder/07 7+lights+off.webp";
-import proj_07_img_8 from "../assets/images/project images/07 New folder/08 2.webp";
-import proj_07_img_9 from "../assets/images/project images/07 New folder/09 3.webp";
-import proj_07_img_10 from "../assets/images/project images/07 New folder/10 5.webp";
+import projCover_07 from "../assets/images/project images/07 New folder/T_MakowArchitects+Warren-Ave.jpg";
+import proj_07_img_1 from "../assets/images/project images/07 New folder/Warren_Ave+Makow_Architects+01.jpg";
+import proj_07_img_2 from "../assets/images/project images/07 New folder/Warren_Ave+Makow_Architects+02.jpg";
+import proj_07_img_3 from "../assets/images/project images/07 New folder/Warren_Ave+Makow_Architects+03.jpg";
+import proj_07_img_4 from "../assets/images/project images/07 New folder/Warren_Ave+Makow_Architects+04.jpg";
+import proj_07_img_5 from "../assets/images/project images/07 New folder/Warren_Ave+Makow_Architects+05.jpg";
+import proj_07_img_6 from "../assets/images/project images/07 New folder/Warren_Ave+Makow_Architects+06.jpg";
+import proj_07_img_7 from "../assets/images/project images/07 New folder/Warren_Ave+Makow_Architects+07.jpg";
+import proj_07_img_8 from "../assets/images/project images/07 New folder/Warren_Ave+Makow_Architects+08.jpg";
 
-import projCover_08 from "../assets/images/project images/08 New folder/01 MakowArchitects+Hillmount-3.webp";
-import proj_08_img_1 from "../assets/images/project images/08 New folder/01 MakowArchitects+Hillmount-3.webp";
-import proj_08_img_2 from "../assets/images/project images/08 New folder/02 MakowArchitects+Hillmount-5.webp";
-import proj_08_img_3 from "../assets/images/project images/08 New folder/03 MakowArchitects+Hillmount-14.webp";
-import proj_08_img_4 from "../assets/images/project images/08 New folder/04 MakowArchitects+Hillmount-13.webp";
-import proj_08_img_5 from "../assets/images/project images/08 New folder/05 MakowArchitects+Hillmount-20.webp";
-import proj_08_img_6 from "../assets/images/project images/08 New folder/06 MakowArchitects+Hillmount-15.webp";
-import proj_08_img_7 from "../assets/images/project images/08 New folder/07 MakowArchitects+Hillmount-19.webp";
-import proj_08_img_8 from "../assets/images/project images/08 New folder/08 MakowArchitects+Hillmount-18.webp";
-import proj_08_img_9 from "../assets/images/project images/08 New folder/09 MakowArchitects+Hillmount-2.webp";
-import proj_08_img_10 from "../assets/images/project images/08 New folder/10 MakowArchitects+Hillmount-17.webp";
-import proj_08_img_11 from "../assets/images/project images/08 New folder/11 MakowArchitects+Hillmount-10.webp";
-import proj_08_img_12 from "../assets/images/project images/08 New folder/12 MakowArchitects+Hillmount-12.webp";
-import proj_08_img_13 from "../assets/images/project images/08 New folder/13 MakowArchitects+Hillmount-6.webp";
 
-import projCover_09 from "../assets/images/project images/09 New folder/02 Studio+HPA+Go+Banana-3.webp";
-import proj_09_img_1 from "../assets/images/project images/09 New folder/01 Studio+HPA+Go+Banana-8.webp";
-import proj_09_img_2 from "../assets/images/project images/09 New folder/02 Studio+HPA+Go+Banana-3.webp";
-import proj_09_img_3 from "../assets/images/project images/09 New folder/03 Studio+HPA+Go+Banana-1.webp";
-import proj_09_img_4 from "../assets/images/project images/09 New folder/04 Studio+HPA+Go+Banana-2.webp";
-import proj_09_img_5 from "../assets/images/project images/09 New folder/05 Studio+HPA+Go+Banana-4.webp";
-import proj_09_img_6 from "../assets/images/project images/09 New folder/06 Studio+HPA+Go+Banana-5.webp";
-import proj_09_img_7 from "../assets/images/project images/09 New folder/07 Studio+HPA+Go+Banana-6.webp";
-import proj_09_img_8 from "../assets/images/project images/09 New folder/08 Studio+HPA+Go+Banana-7.webp";
-import proj_09_img_9 from "../assets/images/project images/09 New folder/09  Studio+HPA+Go+Banana-9.webp";
+import projCover_08 from "../assets/images/project images/08 New folder/T_MakowArchitects+Hillmount.jpg";
+import proj_08_img_1 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+01.jpg";
+import proj_08_img_2 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+02.jpg";
+import proj_08_img_3 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+03.jpg";
+import proj_08_img_4 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+04.jpg";
+import proj_08_img_5 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+05.jpg";
+import proj_08_img_6 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+06.jpg";
+import proj_08_img_7 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+07.jpg";
+import proj_08_img_8 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+08.jpg";
+import proj_08_img_9 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+09.jpg";
+import proj_08_img_10 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+10.jpg";
+import proj_08_img_11 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+11.jpg";
+import proj_08_img_12 from "../assets/images/project images/08 New folder/Hillmount_Road+Makow_Architects+12.jpg";
 
-import projCover_10 from "../assets/images/project images/10 New folder/01 StudioHPA+Safal+Penthouse-1.webp";
-import proj_10_img_1 from "../assets/images/project images/10 New folder/01 StudioHPA+Safal+Penthouse-1.webp";
-import proj_10_img_2 from "../assets/images/project images/10 New folder/02 StudioHPA+Safal+Penthouse-7.webp";
-import proj_10_img_3 from "../assets/images/project images/10 New folder/03 StudioHPA+Safal+Penthouse-6.webp";
-import proj_10_img_4 from "../assets/images/project images/10 New folder/04 StudioHPA+Safal+Penthouse-4.webp";
-import proj_10_img_5 from "../assets/images/project images/10 New folder/05 StudioHPA+Safal+Penthouse-14.webp";
-import proj_10_img_6 from "../assets/images/project images/10 New folder/06 StudioHPA+Safal+Penthouse-3.webp";
-import proj_10_img_7 from "../assets/images/project images/10 New folder/07 StudioHPA+Safal+Penthouse-15.webp";
-import proj_10_img_8 from "../assets/images/project images/10 New folder/08 StudioHPA+Safal+Penthouse-2.webp";
-import proj_10_img_9 from "../assets/images/project images/10 New folder/09 StudioHPA+Safal+Penthouse-5.webp";
-import proj_10_img_10 from "../assets/images/project images/10 New folder/10 StudioHPA+Safal+Penthouse-8.webp";
-import proj_10_img_11 from "../assets/images/project images/10 New folder/11 StudioHPA+Safal+Penthouse-9.webp";
-import proj_10_img_12 from "../assets/images/project images/10 New folder/12 StudioHPA+Safal+Penthouse-10.webp";
-import proj_10_img_13 from "../assets/images/project images/10 New folder/13 StudioHPA+Safal+Penthouse-12.webp";
-import proj_10_img_14 from "../assets/images/project images/10 New folder/14 StudioHPA+Safal+Penthouse-13.webp";
-import proj_10_img_15 from "../assets/images/project images/10 New folder/15 StudioHPA+Safal+Penthouse-16.webp";
+import projCover_09 from "../assets/images/project images/09 New folder/T_Studio HPA+Go Banana-3.jpg";
+import proj_09_img_1 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+01.jpg";
+import proj_09_img_2 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+02.jpg";
+import proj_09_img_3 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+03.jpg";
+import proj_09_img_4 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+04.jpg";
+import proj_09_img_5 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+05.jpg";
+import proj_09_img_6 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+06.jpg";
+import proj_09_img_7 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+07.jpg";
+import proj_09_img_8 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+08.jpg";
+import proj_09_img_9 from "../assets/images/project images/09 New folder/Thaltej_House+StudioHPA+09.jpg";
+
+import projCover_10 from "../assets/images/project images/10 New folder/T_StudioHPA+Safal-Penthouse.jpg";
+import proj_10_img_1 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+01.jpg";
+import proj_10_img_2 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+02.jpg";
+import proj_10_img_3 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+03.jpg";
+import proj_10_img_4 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+04.jpg";
+import proj_10_img_5 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+05.jpg";
+import proj_10_img_6 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+06.jpg";
+import proj_10_img_7 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+07.jpg";
+import proj_10_img_8 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+08.jpg";
+import proj_10_img_9 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+09.jpg";
+import proj_10_img_10 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+10.jpg";
+import proj_10_img_11 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+11.jpg";
+import proj_10_img_12 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+12.jpg";
+import proj_10_img_13 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+13.jpg";
+import proj_10_img_14 from "../assets/images/project images/10 New folder/SafalB70+StudioHPA+14.jpg";
 
 import projCover_11 from "../assets/images/project images/11 New folder/05 EDArchitects+Shaligram+Prime-4.webp";
 import proj_11_img_1 from "../assets/images/project images/11 New folder/01 EDArchitects+Shaligram+Prime-9.webp";
@@ -257,9 +251,6 @@ export const projectsData = [
       proj_02_img_4,
       proj_02_img_5,
       proj_02_img_6,
-      proj_02_img_7,
-      proj_02_img_8,
-      proj_02_img_9,
     ],
   },
   {
@@ -303,7 +294,6 @@ export const projectsData = [
       proj_04_img_7,
       proj_04_img_8,
       proj_04_img_9,
-      proj_04_img_10,
     ],
   },
   {
@@ -349,8 +339,7 @@ export const projectsData = [
       proj_07_img_6,
       proj_07_img_7,
       proj_07_img_8,
-      proj_07_img_9,
-      proj_07_img_10,
+     
     ],
   },
   {
@@ -370,7 +359,6 @@ export const projectsData = [
       proj_08_img_10,
       proj_08_img_11,
       proj_08_img_12,
-      proj_08_img_13,
     ],
   },
   {
@@ -408,7 +396,6 @@ export const projectsData = [
       proj_10_img_12,
       proj_10_img_13,
       proj_10_img_14,
-      proj_10_img_15,
     ],
   },
   {
